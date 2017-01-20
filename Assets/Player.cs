@@ -17,11 +17,12 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private int playerId;
     private bool isAlive = true;
-
+    [SerializeField]
+    private float maxGrowth = 3f;
     float direction = 1.0f;
     // Use this for initialization
     void Start () {
-		
+        GameManager.addPlayer(this);
 	}
 	
 	// Update is called once per frame
@@ -29,13 +30,16 @@ public class Player : MonoBehaviour {
         if (isAlive)
         {
             transform.Rotate(0, rotationSpeed * Time.deltaTime * direction, 0);
-            transform.localScale = new Vector3(transform.localScale.x + 0.0005f, transform.localScale.y + 0.0005f, transform.localScale.z + 0.0005f);
+            if (transform.localScale.x < maxGrowth)
+            {
+                transform.localScale = new Vector3(transform.localScale.x + 0.001f, transform.localScale.y + 0.001f, transform.localScale.z + 0.001f);
+            }
 
             if (Input.GetKey(defaultPlayerKeycode))
             {
                 rotationSpeed = 0f;
                 movementSpeed = defaultMovementSpeed;
-                //transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
+                //transform.Translate(Vector3.forward *W movementSpeed * Time.deltaTime);
                 GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * movementSpeed * Time.deltaTime);
             }
             else
@@ -63,7 +67,7 @@ public class Player : MonoBehaviour {
         if(other.CompareTag("Border"))
         {
             isAlive = false;
-            
+            GameManager.RemovePlayer(this);
         }
     }
 

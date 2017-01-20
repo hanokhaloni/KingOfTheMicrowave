@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
@@ -12,7 +13,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public static bool gameStarted = false;
     [SerializeField]
-    private GameObject[] players;
+    private static List<Player> Players = new List<Player>();
+
+    public Text winnerText;
+    
+    public static void addPlayer(Player player)
+    {
+        Players.Add(player);
+    }
+    public static void RemovePlayer(Player player)
+    {
+        Players.Remove(player);
+    }
 
     void Start()
     {
@@ -27,18 +39,12 @@ public class GameManager : MonoBehaviour
             doorAnim.SetBool("GameStarted",true);
             camAnim.SetBool("GameStarted", true);
         }
-        if(players.Length==1)
+        if(Players.Count ==1)
         {
-            foreach (var player in players)
+            winnerText.text = "<b>"+Players[0].name.ToString() + " Is the Winner!!! Press backspace to reset"+ "</b>";
+            if(Input.GetKeyDown(KeyCode.Backspace))
             {
-                if(player.GetComponent<Rigidbody>().constraints == RigidbodyConstraints.None)
-                {
-
-                }
-                else
-                {
-                    
-                }
+                SceneManager.LoadScene(0);
             }
         }
     }

@@ -75,10 +75,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AIPlayer.cs" />
     <Compile Include="Assets\GameManager.cs" />
+    <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\Push.cs" />
     <Compile Include="Assets\StartBtn.cs" />
+    <Compile Include="Assets\numberOfPlayersTextBehavior.cs" />
+    <Compile Include="Assets\sliderText.cs" />
+    <Compile Include="Assets\timer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\readme.txt" />
