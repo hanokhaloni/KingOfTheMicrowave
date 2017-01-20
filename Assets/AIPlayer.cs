@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class AIPlayer : MonoBehaviour {
 
     [SerializeField]
     KeyCode defaultPlayerKeycode;
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour {
             transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
             transform.localScale = new Vector3(transform.localScale.x + 0.0005f, transform.localScale.y + 0.0005f, transform.localScale.z + 0.0005f);
 
-            if (Input.GetKey(defaultPlayerKeycode))
+            if (getBehavior())
             {
                 rotationSpeed = 0f;
                 movementSpeed = defaultMovementSpeed;
@@ -42,8 +42,6 @@ public class Player : MonoBehaviour {
                 movementSpeed = 0f;
             }
         }
-
-
     }
 
     //private void OnCollisionEnter(Collision collision)
@@ -58,6 +56,11 @@ public class Player : MonoBehaviour {
             isAlive = false;
             
         }
+    }
+
+    private bool getBehavior()
+    {
+        return (Random.value > 0.1f);
     }
 
 }
