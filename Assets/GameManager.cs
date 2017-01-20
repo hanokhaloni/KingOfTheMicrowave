@@ -6,10 +6,14 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject arena;
+    private Animator doorAnim;
     [SerializeField]
-    private float rotationSpeed = 10f;
-    // Use this for initialization
+    private Animator camAnim;
+    [SerializeField]
+    public static bool gameStarted = false;
+    [SerializeField]
+    private GameObject[] players;
+
     void Start()
     {
         
@@ -18,6 +22,24 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //arena.transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
+        if(gameStarted)
+        {
+            doorAnim.SetBool("GameStarted",true);
+            camAnim.SetBool("GameStarted", true);
+        }
+        if(players.Length==1)
+        {
+            foreach (var player in players)
+            {
+                if(player.GetComponent<Rigidbody>().constraints == RigidbodyConstraints.None)
+                {
+
+                }
+                else
+                {
+                    
+                }
+            }
+        }
     }
 }

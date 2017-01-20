@@ -17,8 +17,10 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private int playerId;
     private bool isAlive = true;
-	// Use this for initialization
-	void Start () {
+
+    float direction = 1.0f;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -26,7 +28,7 @@ public class Player : MonoBehaviour {
 	void Update () {
         if (isAlive)
         {
-            transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
+            transform.Rotate(0, rotationSpeed * Time.deltaTime * direction, 0);
             transform.localScale = new Vector3(transform.localScale.x + 0.0005f, transform.localScale.y + 0.0005f, transform.localScale.z + 0.0005f);
 
             if (Input.GetKey(defaultPlayerKeycode))
@@ -40,6 +42,11 @@ public class Player : MonoBehaviour {
             {
                 rotationSpeed = defaultRotationSpeed;
                 movementSpeed = 0f;
+            }
+
+            if (Input.GetKeyUp(defaultPlayerKeycode))
+            {
+                direction = direction * -1.0f;
             }
         }
 

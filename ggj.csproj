@@ -78,6 +78,7 @@
     <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\Push.cs" />
+    <Compile Include="Assets\StartBtn.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\readme.txt" />
