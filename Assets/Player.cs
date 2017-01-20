@@ -7,13 +7,13 @@ public class Player : MonoBehaviour {
     [SerializeField]
     KeyCode defaultPlayerKeycode;
     [SerializeField]
-    private float defaultRotationSpeed = 300f;
+    public float defaultRotationSpeed = 300f;
     private float rotationSpeed = 300f;
     [SerializeField]
-    private float defaultMovementSpeed = 30f;
+    private float defaultMovementSpeed = 50f;
     private float movementSpeed = 0f;
     [SerializeField]
-    private float defualtReboundFactor = -500f;
+    public float defualtReboundFactor = -500f;
     [SerializeField]
     private int playerId;
     private bool isAlive = true;
@@ -33,7 +33,8 @@ public class Player : MonoBehaviour {
             {
                 rotationSpeed = 0f;
                 movementSpeed = defaultMovementSpeed;
-                transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
+                //transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
+                GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * movementSpeed * Time.deltaTime);
             }
             else
             {
@@ -47,12 +48,16 @@ public class Player : MonoBehaviour {
 
     //private void OnCollisionEnter(Collision collision)
     //{
-    //    collision.rigidbody.AddRelativeForce(Vector3.forward * defualtReboundFactor);
+    //    collision.rigidbody.AddRelativeForce(collision * defualtReboundFactor);
     //}
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.CompareTag("Border"))
+        {
+            isAlive = false;
+            
+        }
     }
 
 }
