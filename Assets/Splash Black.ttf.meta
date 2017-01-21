@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 31a48fc2f2c47964d8e5e2e1507600d2
+timeCreated: 1484993356
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Splash Black
+  fontNames:
+  - Splash Black
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
