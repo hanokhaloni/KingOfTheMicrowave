@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: b6d1cc89fa9903940a30f08d3a9f857b
+timeCreated: 1484993357
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Splash
+  fontNames:
+  - Splash
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

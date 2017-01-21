@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: b245b1112b3819245b1f59a32bd0fd04
+timeCreated: 1484936328
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: PinkCandyPopcornFont
+  fontNames:
+  - PinkCandyPopcornFont
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
