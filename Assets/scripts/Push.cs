@@ -29,6 +29,8 @@ public class Push : MonoBehaviour
         {
             other.GetComponent<Rigidbody>().AddRelativeForce((other.transform.position - player.gameObject.transform.position).normalized * player.defualtReboundFactor / 6);
             playRandomSound();
+            //GameManager.GetInstance().Splash();
+            
         }
         if (other.CompareTag("Border"))
         {
@@ -44,6 +46,16 @@ public class Push : MonoBehaviour
         audiosource.Play();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            GameObject partical = Instantiate(other.GetComponent<Player>().particalEffect) as GameObject;
+            partical.transform.position = transform.position;
+
+            GameObject.FindGameObjectWithTag("Splash").GetComponent<SplashCanvas>().doSplashAnimation();
+        }
+    }
 
 
 
