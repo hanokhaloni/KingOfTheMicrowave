@@ -14,8 +14,7 @@ public class Player : MonoBehaviour {
     private float movementSpeed = 0f;
     [SerializeField]
     public float defualtReboundFactor = -500f;
-    [SerializeField]
-    private int playerId;
+
     private bool isAlive = true;
     [SerializeField]
     private float maxGrowth = 3f;
