@@ -19,6 +19,7 @@ public class Push : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             other.GetComponent<Rigidbody>().AddRelativeForce((other.transform.position - player.gameObject.transform.position).normalized * player.defualtReboundFactor);
+            GameObject particalePrefab = Instantiate(player.particalEffect, transform.position,transform.rotation);
         }
         if(other.CompareTag("Border"))
         {
@@ -26,4 +27,18 @@ public class Push : MonoBehaviour {
             player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<Rigidbody>().AddRelativeForce((other.transform.position - player.gameObject.transform.position).normalized * player.defualtReboundFactor/6);
+        }
+        if (other.CompareTag("Border"))
+        {
+            player.GetComponent<Rigidbody>().drag = 0;
+            player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        }
+    }
+
 }

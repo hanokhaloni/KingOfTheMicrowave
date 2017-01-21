@@ -20,6 +20,8 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float maxGrowth = 3f;
     float direction = 1.0f;
+    [SerializeField]
+    public GameObject particalEffect;
     // Use this for initialization
     void Start () {
         GameManager.addPlayer(this);
@@ -70,5 +72,6 @@ public class Player : MonoBehaviour {
             GameManager.RemovePlayer(this);
         }
     }
+    
 
 }
